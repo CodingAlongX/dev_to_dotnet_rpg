@@ -13,21 +13,27 @@ namespace dev_to_dotnet_rpg.Services.CharacterService
             new Character {Id = 1, Name = "Sam"}
         };
 
-        public async Task<List<Character>> GetAllCharacter()
+        public async Task<ServiceResponse<List<Character>>> GetAllCharacter()
         {
-            return Characters;
+            var serviceResponse = new ServiceResponse<List<Character>> {Data = Characters};
+            return serviceResponse;
         }
 
-        public async Task<Character> GetCharacterById(int id)
+        public async Task<ServiceResponse<Character>> GetCharacterById(int id)
         {
-            return Characters.FirstOrDefault(c => c.Id == id);
+            var serviceResponse = new ServiceResponse<Character> {Data = Characters.FirstOrDefault(c => c.Id == id)};
+
+
+            return serviceResponse;
         }
 
-        public async Task<List<Character>> AddCharacter(Character character)
+        public async Task<ServiceResponse<List<Character>>> AddCharacter(Character character)
         {
             Characters.Add(character);
 
-            return Characters;
+            var serviceResponse = new ServiceResponse<List<Character>> {Data = Characters};
+
+            return serviceResponse;
         }
     }
 }

@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using dev_to_dotnet_rpg.Data;
 using dev_to_dotnet_rpg.Dtos.Character;
 using dev_to_dotnet_rpg.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace dev_to_dotnet_rpg.Services.CharacterService
 {
     public class CharacterService : ICharacterService
     {
         private readonly IMapper _mapper;
+        private readonly DataContext _context;
 
         private static readonly List<Character> Characters = new()
         {
@@ -18,22 +21,28 @@ namespace dev_to_dotnet_rpg.Services.CharacterService
             new Character {Id = 1, Name = "Sam"}
         };
 
-        public CharacterService(IMapper mapper)
+        public CharacterService(IMapper mapper, DataContext context)
         {
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacter()
         {
-            var serviceResponse = new ServiceResponse<List<GetCharacterDto>>
-                {Data = Characters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList()};
+            var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
+            var dbCharacters = await _context.Characters.ToListAsync();
+
+            serviceResponse.Data = dbCharacters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
             return serviceResponse;
         }
 
         public async Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id)
         {
-            var serviceResponse = new ServiceResponse<GetCharacterDto>
-                {Data = _mapper.Map<GetCharacterDto>(Characters.FirstOrDefault(c => c.Id == id))};
+            var serviceResponse = new ServiceResponse<GetCharacterDto>();
+
+            var dbCharacter = await _context.Characters.FirstOrDefaultAsync(c => c.Id == id);
+
+            serviceResponse.Data =  _mapper.Map<GetCharacterDto>(dbCharacter);
 
             return serviceResponse;
         }

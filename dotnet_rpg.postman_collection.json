@@ -1,0 +1,443 @@
+{
+	"info": {
+		"_postman_id": "ca0afa06-7629-4f9a-afb1-c33cad259420",
+		"name": "dotnet_rpg",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"user3\",\n    \"password\":\"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"user1\",\n    \"password\":\"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Character",
+			"item": [
+				{
+					"name": "Get All Character",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzIiwidW5pcXVlX25hbWUiOiJ1c2VydGVzdCIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTYxNTEyNzI5MiwiZXhwIjoxNjE1MjEzNjkyLCJpYXQiOjE2MTUxMjcyOTJ9.FKxIrMKszasK5RNfR_6T8IfJDWkrfnOxv95ECYs_-BLXMCmYeWJu4WT8FHQLAkGr9WfGJY0jmwXCSWXwsrHIQg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/character/getall",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"character",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Character",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0ZXN0dXNlciIsIm5iZiI6MTYxNDE4NzExMCwiZXhwIjoxNjE0MjczNTEwLCJpYXQiOjE2MTQxODcxMTB9.WT9FttqD4i8xxMs-Uj_LoidU4scp_Iy6np2Fl06p5O2PluPg4PQPfDg83kK4ofjkKd9ZLKLdov0RsftVWlIKvg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/character/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"character",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Character",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0ZXN0dXNlciIsIm5iZiI6MTYxNDE4NzExMCwiZXhwIjoxNjE0MjczNTEwLCJpYXQiOjE2MTQxODcxMTB9.WT9FttqD4i8xxMs-Uj_LoidU4scp_Iy6np2Fl06p5O2PluPg4PQPfDg83kK4ofjkKd9ZLKLdov0RsftVWlIKvg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/character/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"character",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Character",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0ZXN0dXNlciIsIm5iZiI6MTYxNDE4NzExMCwiZXhwIjoxNjE0MjczNTEwLCJpYXQiOjE2MTQxODcxMTB9.WT9FttqD4i8xxMs-Uj_LoidU4scp_Iy6np2Fl06p5O2PluPg4PQPfDg83kK4ofjkKd9ZLKLdov0RsftVWlIKvg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 4,\n        \"name\": \"Frodo\",\n        \"hitPoints\": 100,\n        \"strength\": 10,\n        \"defense\": 10,\n        \"intelligence\": 10,\n        \"class\": 1\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/character/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"character",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Character",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0ZXN0dXNlciIsIm5iZiI6MTYxNDE4NzExMCwiZXhwIjoxNjE0MjczNTEwLCJpYXQiOjE2MTQxODcxMTB9.WT9FttqD4i8xxMs-Uj_LoidU4scp_Iy6np2Fl06p5O2PluPg4PQPfDg83kK4ofjkKd9ZLKLdov0RsftVWlIKvg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/character/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"character",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Character Skill",
+			"item": [
+				{
+					"name": "Add Character Skill",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0ZXN0dXNlciIsIm5iZiI6MTYxNDE4NzExMCwiZXhwIjoxNjE0MjczNTEwLCJpYXQiOjE2MTQxODcxMTB9.WT9FttqD4i8xxMs-Uj_LoidU4scp_Iy6np2Fl06p5O2PluPg4PQPfDg83kK4ofjkKd9ZLKLdov0RsftVWlIKvg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"characterId\":2,\n    \"skillId\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/characterskill",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"characterskill"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fight",
+			"item": [
+				{
+					"name": "Weapon Attack",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"attackerId\":1,\n    \"opponentId\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/fight/weapon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"fight",
+								"weapon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Skill Attack",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"attackerId\":1,\n    \"opponentId\":2,\n    \"skillId\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/fight/skill",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"fight",
+								"skill"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fight",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"characterIds\":[1,2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/fight/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"fight",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fight Result",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/fight/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"fight",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Weapon",
+			"item": [
+				{
+					"name": "Add Weapon",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0ZXN0dXNlciIsIm5iZiI6MTYxNDE4NzExMCwiZXhwIjoxNjE0MjczNTEwLCJpYXQiOjE2MTQxODcxMTB9.WT9FttqD4i8xxMs-Uj_LoidU4scp_Iy6np2Fl06p5O2PluPg4PQPfDg83kK4ofjkKd9ZLKLdov0RsftVWlIKvg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"The Ebony Blade\",\n    \"damage\":15,\n    \"characterId\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/weapon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"weapon"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

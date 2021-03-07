@@ -17,13 +17,19 @@ namespace dev_to_dotnet_rpg.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<CharacterSkill>()
                 .HasKey(cs => new {cs.CharacterId, cs.SkillId});
 
             modelBuilder.Entity<User>()
                 .Property(u => u.Role).HasDefaultValue("Player");
 
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Skill>().HasData(
+                new Skill {Id = 1, Name = "Fireball", Damage = 30},
+                new Skill {Id = 2, Name = "Frenzy", Damage = 20},
+                new Skill {Id = 3, Name = "Blizzard", Damage = 50}
+            );
         }
     }
 }

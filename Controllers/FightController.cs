@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using dev_to_dotnet_rpg.Dtos.Fight;
 using dev_to_dotnet_rpg.Services.FightService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +14,12 @@ namespace dev_to_dotnet_rpg.Controllers
         public FightController(IFightService fightService)
         {
             _fightService = fightService;
+        }
+
+        [HttpPost("Weapon")]
+        public async Task<IActionResult> WeaponAttack(WeaponAttackDto request)
+        {
+            return Ok(await _fightService.WeaponAttack(request));
         }
     }
 }

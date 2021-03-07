@@ -1,6 +1,7 @@
 using System.Linq;
 using AutoMapper;
 using dev_to_dotnet_rpg.Dtos.Character;
+using dev_to_dotnet_rpg.Dtos.Fight;
 using dev_to_dotnet_rpg.Dtos.Skill;
 using dev_to_dotnet_rpg.Dtos.Weapon;
 using dev_to_dotnet_rpg.Models;
@@ -16,6 +17,7 @@ namespace dev_to_dotnet_rpg
             CreateMap<AddCharacterDto, Character>();
             CreateMap<Weapon, GetWeaponDto>();
             CreateMap<Skill, GetSkillDto>();
+            CreateMap<Character, HighScoreDto>();
         }
     }
 }
